@@ -1,30 +1,26 @@
-import { VStack, Text, Box, ScrollView, Divider } from "native-base";
+import { Text, ScrollView, Box, VStack } from "native-base";
+import { CardConsulta } from "../componentes/CardConsulta";
 import { EntradaTexto } from "../componentes/EntradaTexto";
 import { Botao } from "../componentes/Botao";
-import { Titulo } from "../componentes/Titulo";
-import { CardConsulta } from "../componentes/CardConsulta";
 
-export default function Principal() {
-  return (
-    <ScrollView flex={1}>
-      <VStack flex={1} padding={5} alignItems={"center"}>
-        <Box w={"100%"} bg={"white"} p={"3"} borderRadius={"lg"} shadow={"2"} mt={"5"} borderRightRadius={"lg"}>
-            <EntradaTexto placeholder="Digite a especialidade"></EntradaTexto>
-            <EntradaTexto placeholder="Digite sua localização"></EntradaTexto>
-          <Botao mt={"3"} mb={"3"}>Buscar</Botao>
-        </Box>
-
-        <Titulo color="blue.500" alignSelf={"center"} mb={"5"}>Resultado da Busca</Titulo>
-        {[1, 2, 3].map((_, index) => (
-        <VStack w={"100%"} alignItems={"flex-start"} borderRadius={"lg"} padding={3} key={index}>
-            <CardConsulta
-                especialidade="Cardiologia"
-                foto="https://github.com/kaykegasparini.png"
-                nome="Dr.Roberto"
-            />
-        </VStack>
-        ))}
-      </VStack>
-    </ScrollView>
-  );
+export default function Explorar() {
+    return (
+        <ScrollView flex={1} bgColor="white">
+            <VStack flex={1} alignItems="flex-start" justifyContent="flex-start" p={5}>
+                <Box w="100%" borderRadius="lg" p={3} mt={5} shadow="1" borderRightRadius="md">
+                    <EntradaTexto placeholder="Digite a especialidade" />
+                    <EntradaTexto placeholder="Digite sua localização" />
+                    <Botao mt={3} mb={3}>
+                        Buscar
+                    </Botao>
+                </Box>
+                <Text color="blue.500" fontSize={25} textAlign="center" alignSelf="center" mb={5} mt={3}>Resultado da Busca</Text>
+                {[1, 2, 3, 4].map((_, index) => (
+                    <VStack flex={1} w="100%" alignItems="flex-start" bgColor="white" key={index} mb={10}>
+                        <CardConsulta especialidade="Angiologista" nome="Dra. Ana Lúcia" foto="https://github.com/arthurlmr2004.png" />
+                    </VStack>
+                ))}
+            </VStack>
+        </ScrollView>
+    );
 }
