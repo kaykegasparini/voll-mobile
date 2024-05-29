@@ -23,8 +23,10 @@ export default function Explorar(){
     if (!estado || !especialidade) return null
     const resultado = await buscarEspecialistaPorEstado(estado, especialidade)
     if(resultado){
-      setResultadoBusca(resultado)
-      console.log(resultadoBusca)
+      setResultadoBusca(resultado);
+      console.log(resultadoBusca);
+    } else {
+      console.log('Nada Encontrado')
     }
   }
 
