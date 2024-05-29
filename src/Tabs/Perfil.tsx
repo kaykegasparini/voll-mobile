@@ -34,12 +34,12 @@ export default function Perfil({navigation}){
       <VStack flex={1} alignItems="center" p={5}>
         <Titulo color="blue.500">Meu Perfil</Titulo>
 
-        <Avatar size="xl" source={{ uri: dadosPaciente.imagem }} mt={5} />
+        <Avatar size="xl" source={{ uri: dadosPaciente?.imagem }} mt={5} />
 
         <Titulo color="blue.500">Informações pessoais</Titulo>
         <Titulo fontSize="lg" mb={1}>{dadosPaciente.nome}</Titulo>
-        <Text>dadosPaciente.email</Text>
-        <Text>dadosPaciente.endereco.estado</Text>
+        <Text>{dadosPaciente?.email}</Text>
+        <Text>{dadosPaciente?.endereco?.estado}</Text>
 
         <Divider mt={5} />
 
