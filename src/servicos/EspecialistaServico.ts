@@ -1,17 +1,15 @@
-import api from "./api"
+import api from "./api";
 
-export async function buscarEspecialistaPorEstado(estado: string, especialidade: string){
-    try{
+export async function buscarEspecialistaPorEstado(estado: string, especialidade: string) {
+    try {
         const resultado = await api.get('/especialista/busca', {
             params: {
-                estado: estado,
-                especialidade: especialidade
+                estado,
+                especialidade
             }
-        }) 
-        return resultado.data
-    } 
-    catch(error){
-        console.log(error)
+        });
+        return resultado.data;
+    } catch (error) {
+        console.log(error);
     }
-    
 }
