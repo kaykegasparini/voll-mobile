@@ -5,7 +5,7 @@ import { EntradaTexto } from "../componentes/EntradaTexto";
 import { Titulo } from "../componentes/Titulo";
 import { buscarEspecialistaPorEstado } from "../servicos/EspecialistaServico";
 import { useState } from "react";
-import { agendarConsulta } from "../servicos/ConsultaServico";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 
 interface Especialista {
   nome: string,
@@ -58,6 +58,9 @@ export default function Explorar({ navigation }) {
             />
           </VStack>
         ))}
+        <Botao onPress={() => navigation.navigate('Principal')}>
+          Voltar
+        </Botao>
       </VStack>
     </ScrollView>
   )

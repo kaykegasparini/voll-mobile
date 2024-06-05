@@ -71,11 +71,15 @@ export default function Consultas({
     }
   }
 
+  function novaConsulta(){
+    navigation.navigate("Agendamento");
+  }
+
   return (
     <ScrollView p="5">
       <VStack flex={1} alignItems="center" justifyContent="flex-start">
         <Titulo color="blue.500">Minhas consultas</Titulo>
-        <Botao mt={5} mb={5}>
+        <Botao mt={5} mb={5} onPress={novaConsulta}>
           Agendar nova consulta
         </Botao>
 
