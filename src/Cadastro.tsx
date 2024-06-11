@@ -6,6 +6,7 @@ import { EntradaTexto } from './componentes/EntradaTexto';
 import { Titulo } from './componentes/Titulo';
 import { secoes } from './utils/CadastroEntradaTexto';
 import { cadastrarPaciente } from './servicos/PacienteServico';
+import { TouchableOpacity } from 'react-native';
 
 export default function Cadastro({ navigation }: any) {
   const [numSecao, setNumSecao] = useState(0);
@@ -89,7 +90,7 @@ export default function Cadastro({ navigation }: any) {
   }
 
   return (
-    <ScrollView flex={1} p={5}>
+    <ScrollView flex={1} p={5} backgroundColor="white">
       <Image source={Logo} alt="Logo Voll" alignSelf="center" />
 
       <Titulo>
@@ -112,7 +113,7 @@ export default function Cadastro({ navigation }: any) {
         }
       </Box>
       <Box>
-        {numSecao == 2 && <Text color="blue.800" fontWeight="bold" fontSize="md" mt="2" mb={2}>
+        {numSecao == 2 && <Text color="green.700" fontWeight="bold" fontSize="md" mt="2" mb={2}>
           Selecione o plano:
         </Text>}
         {
@@ -130,6 +131,10 @@ export default function Cadastro({ navigation }: any) {
                   })
                 }}
                 isChecked={planos.includes(checkbox.id)}
+                _checked={{
+                  backgroundColor: 'green.500',
+                  borderColor: 'green.500'
+                }}
               >
                 {checkbox.value}
               </Checkbox>)
@@ -137,9 +142,19 @@ export default function Cadastro({ navigation }: any) {
         }
       </Box>
       {numSecao > 0 && <Botao onPress={() => voltarSecao()} bgColor="gray.400">Voltar</Botao>}
-      <Botao onPress={() => avancarSecao()} mt={4} mb={20}>
-        {numSecao == 2 ? 'Finalizar' : 'Avancar'}
+      <Botao onPress={() => avancarSecao()} mt={4} mb={9} backgroundColor={numSecao == 2 ? "green.500" : "green.500"}>
+        {numSecao == 2 ? 'Finalizar' : 'Avançar'}
       </Botao>
+      {numSecao == 0 && 
+      <Box w="100%" flexDirection="row" justifyContent="center">
+        <Text>Já tem cadastro? </Text>
+        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+          <Text color="green.500">
+            Faça seu Login!
+          </Text>
+        </TouchableOpacity>
+      </Box>
+}
     </ScrollView>
   );
 }

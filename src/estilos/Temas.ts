@@ -2,21 +2,17 @@ import { extendTheme } from 'native-base'
 
 export const Temas = extendTheme({
   colors: {
-    gray: {
-      300: '#8D8D99'
+    green: {
+      300: '#A3E635', // Verde claro moderno
+      500: '#22C55E', // Verde médio moderno
+      700: '#15803D', // Verde escuro moderno
     },
-    blue: {
-      500: '#339CFF',
-      800: '#0B3B60'
+    red: {
+      300: '#F87171', // Vermelho claro moderno
+      500: '#EF4444', // Vermelho médio moderno
+      700: '#B91C1C', // Vermelho escuro moderno
     },
-    white: '#fff',
-    black: '#000'
+    white: '#FFFFFF',
+    black: '#000000'
   },
-  fontSizes: {
-    xs: 12,
-    sm: 14,
-    md: 16,
-    lg: 20,
-    xl: 24
-  }
 })
